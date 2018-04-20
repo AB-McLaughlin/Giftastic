@@ -6,15 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+            <script type= "text/javascript" src = "assets/javascript/giftastic.js"></script>
 
     <title>GIFtastic</title>
 
 </head>
-<script type="text/javascript"></script>
+
 <body>
+    <!--Jumbotron, image, header-->
     <div class="jumbotron" style="background-image: url(assets/images/jumbobckgrnd.jpg); background-size: 100% 100%;">
         <div class="container">
                 <div class="row">
@@ -24,21 +28,22 @@
                 </div>
         </div>
     </div>                   
-      
+    <!--Buttons for categories-->  
         <div class = "container">
             <div class = "row">
                 <div class = "col-lg-10">
-                    <div class="btn-group" style="margin:20px;" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info btn-lg navbar btn">quotes</button>
-                            <button type="button" class="btn btn-info btn-lg navbar btn">animals</button>
-                            <button type="button" class="btn btn-info btn-lg navbar btn">humor</button>
-                            <button type="button" class="btn btn-info btn-lg navbar btn">scenic</button>
-                            <button type="button" class="btn btn-info btn-lg navbar btn">family</button>
-                            <button type="button" class="btn btn-info btn-lg navbar btn">biblical</button>
-                    </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                            <button type="button" class="btn btn-info btn-lg"></button>
+                        </div>
                 </div>
             </div> 
-        </div> 
+        </div>
+        <!--Input form for user requests-->       
         <div class = "container">          
             <div class = "row">
                 <form class="form-horizontal">
@@ -56,22 +61,17 @@
                             </fieldset>
                 </form>
             </div>
-        </div>    
-
-
-
-
+        </div>
+        <!--GIFs retrieved-->
+        <div class = "container">
+            <div class = "row">
+                <div id = "gifs-appear-here">
+                </div>
+            </div>
+        </div>
             
-                
-
-
-
-
-
-
-        
-    </div> 
 </script>
+
 </body>
 
 </html>
