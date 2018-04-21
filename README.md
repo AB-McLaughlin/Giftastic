@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GifTastic
 
 ### Overview
@@ -91,3 +92,12 @@ After completing the homework please add the piece to your portfolio. Make sure 
 If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
 
 **Good Luck!**
+=======
+# Giftastic
+wk6 homework
+This project shows you a list of topic buttons.  
+When you click a button, ten non-animated GIFs pop up.  You click on a GIF and it will animate.
+The GIFs are rated from G-PG and the rating is shown.
+The user can add another topic to the array.
+
+>>>>>>> 88edc1c73d4e3b032e3affa48b2a142d6b2df1d7
