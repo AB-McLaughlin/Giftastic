@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
 //Create an array of strings related to inspiration
-    var topic = ["quotes", "animals", "humor", "scenic", "family", "biblical"];
+    var topic = ["inspirational quotes", "inspirational humor", "inspiring nature", "inspirational family"];
 
 //Function to display images
     function dispImg(){
@@ -31,13 +31,15 @@ $(document).ready(function(){
                 dispDiv.append(image);
 
                 var rating = response.data[i].rating;
-                console.log(response);
-                var pRating = $("<p>").text("Rating: " + rating);
-                dispDiv.append(pRating);
+                
+                    if (rating !== "r" && rating !== "pg-13") {
+                            
+                        var pRating = $("<p>").text("Rating: " + rating);
+                        dispDiv.append(pRating);
 
-                $("#gifs-here").append(dispDiv);
-            };
-        });
+                        $("#gifs-here").prepend(dispDiv);
+                    };
+        }});
     }    
 
 //Function to create new button for each already identified topic; create button for each added topic
@@ -50,9 +52,8 @@ $(document).ready(function(){
             newBtn.attr("class", "btn btn-info btn-lg");
             newBtn.attr("id", "input");
             newBtn.attr("data-name", topic[j]);
-            newBtn.attr(topic[j]);
-            $("#display-buttons").append(newBtn);
-            console.log(newBtn);
+            newBtn.text(topic[j]);
+            $("#display-buttons").prepend(newBtn);
         };
     }
 
@@ -76,7 +77,7 @@ $(document).ready(function(){
 
     $("#submitPress").on("click",function(){
 
-        var input = $("#input").val().trim();
+        var input = $("#user-input").val().trim();
         form.reset();
         topic.push(input);
         createBtn();
