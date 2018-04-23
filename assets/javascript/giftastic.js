@@ -1,76 +1,98 @@
+$(document).ready(function(){
+
+
 //Create an array of strings related to inspiration
-var topic = ["quotes", "animals", "humor", "scenic", "family", "biblical"];
+    var topic = ["quotes", "animals", "humor", "scenic", "family", "biblical"];
 
-//URL to search Giphy for inspiration
-var url = "https://api.giphy.com/v1/gifts/search?q=" + topic + "&api_key=FdmuOJSslqKU6gLafd20LU84NCHTjp9W" + "&fqmax= " + 10;
+//Function to display images
+    function dispImg(){
 
-//Loop to append buttons for each string in var topic
-function topicBtn(){
-    var i;
-    for(i = 0; i < topic.length; i++){
-        $(".btn btn-info btn-lg").append[i];
+        $("#gifs-here").empty();
+        var input = $(this).attr("data-name");
+        var limit = 10;
+        var url = "https://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=FdmuOJSslqKU6gLafd20LU84NCHTjp9W" + "&limit= " + limit;
+
+//Ajax GET request; create div to hold images and ratings; add attributes to make animation run when called; send it to the HTML   
+    $.ajax({
+        url: url,
+        method: "GET"
+        })
+        .done(function(response){
+            for (var i = 0; i < limit; i++){
+                var dispDiv = $("<div>");
+                dispDiv.addClass("holder");
+
+                var image = $("<img>");
+                image.attr("src", response.data[i].images.original_still.url);
+                image.attr("data-still", response.data[i].images.original_still.url);
+                image.attr("data-animate", response.data[i].images.original.url);
+                image.attr("data-state", "still");
+                image.attr("class", "gif");
+                dispDiv.append(image);
+
+                var rating = response.data[i].rating;
+                console.log(response);
+                var pRating = $("<p>").text("Rating: " + rating);
+                dispDiv.append(pRating);
+
+                $("#gifs-here").append(dispDiv);
+            };
+        });
+    }    
+
+//Function to create new button for each already identified topic; create button for each added topic
+    function createBtn(){
+        $("#display-buttons").empty();
+
+        for (var j = 0; j < topic.length; j++) {
+
+            var newBtn = $("<button>");
+            newBtn.attr("class", "btn btn-info btn-lg");
+            newBtn.attr("id", "input");
+            newBtn.attr("data-name", topic[j]);
+            newBtn.attr(topic[j]);
+            $("#display-buttons").append(newBtn);
+            console.log(newBtn);
+        };
     }
-}
 
-//Call function to create buttons in html
-    topicBtn();
+//Function to make animation/still work
 
-//Onclick, retrieve GIFs
-    $(".btn btn-info btn-lg").click(function(){
-        $.get("url");
-})
+    function animate(){
 
-// After the gifs return from the API
-$.then(function(curTopic){
-    var curTopic = response.data;
+        var state = $(this).attr("data-state");
+        var animatedImg = $(this).attr("data-animate");
+        var stillImg = $(this).attr("data-still");
 
-//curTopic = curImage to move data
-    var curImage = curTopic;
+        if(state == "still"){
+            $(this).attr("src", animatedImg);
+            $(this).attr("data-state", "animate");
+        }
+        else if(state == "animate"){
+            $(this).attr("src", stillImg);
+            $(this).attr("data-state", "still"); 
+        }
+    }
 
-// Create an image tag
-    curImage = $("<img>");
+    $("#submitPress").on("click",function(){
 
-//Append curImage to 
-   
-})
-
-$.then(function(response) {
-   // Store results in the newTopic variable
-        var newTopic = response.data;
-
-    // Create a button with the class "btn btn-info btn-lg"
-        var newTopicBtn = $("button").add(document.getElementsByClassName("btn btn-info btn-lg"));
-
-    //newTopic = gifImage to move data
-        var gifImage = newTopic;
-
-    // Create an image tag
-        var gifImage = $("<img>");
-
-    //Append gifImage to the "newTopicBtn" button so gifs appear when pressed         
-        newTopicBtn.append(gifImage);
-
-    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-        $("#gifs-appear-here").on("click", function(){prepend(gifImage);
+        var input = $("#input").val().trim();
+        form.reset();
+        topic.push(input);
+        createBtn();
+        return false;
     })
-})
 
-//When submit button is clicked, add new topic to array
-$(".btn btn-success").on("click", function(){
-    topic.push(event);
+    createBtn();
 
-    //Create a new button for new topic from array
-    $(".btn btn-info btn-lg").clone().add(this).appendTo(document.body.btn-group);
+    $(document).on("click", "#input", dispImg);
+    $(document).on("click", ".gif", animate);
+});  
 
-    //AJAX GET request
-    $.get("url");
 
-    // Create an image tag
-    var gifImage = $("<img>");
 
-    // Append gifImage to the "newTopicBtn" button so gifs appear when pressed         
-       newTopicBtn.append(gifImage);
 
-    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-        $("#gifs-appear-here").prepend(gifDiv);
-    })
+
+
+    
+    

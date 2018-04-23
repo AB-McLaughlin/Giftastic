@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
             <script type= "text/javascript" src = "assets/javascript/giftastic.js"></script>
 
     <title>GIFtastic</title>
@@ -19,63 +16,33 @@
 </head>
 
 <body>
+<div class="container">    
     <!--Jumbotron, image, header-->
     <div class="jumbotron" style="background-image: url(assets/images/jumbobckgrnd.jpg); background-size: 100% 100%;">
-        <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 style= "text-align: right; color: white; padding: 0px; font-size: 36px;">What inspires you?</h1>
+        <h1 style= "text-align: right; color: white; padding: 0px; font-size: 36px;">What inspires you?</h1>
+    </div>
+
+    <!--Buttons for categories-->  
+                <div class = "row">
+                    <div class = "col-md-12" id="display-buttons"></div>
+                </div> 
+        
+        <!--Input form for user requests-->       
+                <div class = "row">
+                    <div class="col-md-12">
+                        <form id="form">
+                            <label for="user-input" style="font-weight: bold; font-size: 40px">Get Inspired</label><br>    
+                            <input type="text" id="user-input">
+                                <input id= "submitPress" type="submit" value="Submit" class="btn btn-success">
+                        </form>
                     </div>
                 </div>
-        </div>
-    </div>                   
-    <!--Buttons for categories-->  
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-lg-10">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                            <button type="button" class="btn btn-info btn-lg"></button>
-                        </div>
-                </div>
-            </div> 
-        </div>
-        <!--Input form for user requests-->       
-        <div class = "container">          
-            <div class = "row">
-                <form class="form-horizontal">
-                            <fieldset>
-                            <div class="form-group">
-                                <div class="col-lg-10">
-                                <input type="text" class="form-control" id="input" placeholder="Add inspiration">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-10">
-                                <button type="submit" class="btn btn-success" id="add">Get inspired!</button>
-                                </div>
-                            </div>
-                            </fieldset>
-                </form>
-            </div>
-        </div>
+
         <!--GIFs retrieved-->
-        <div class = "container">
-            <div class = "row">
-                <div id = "gifs-appear-here">
+
+                <div class = "row">
+                    <div class="col-md-12" id = "gifs-here"></div>
                 </div>
-            </div>
-        </div>
-            
-</script>
-
+</div>
 </body>
-
 </html>
-=======
-
->>>>>>> 88edc1c73d4e3b032e3affa48b2a142d6b2df1d7
